@@ -14,7 +14,9 @@ class App extends React.Component {
       events: [],
       city: 'Amsterdam',
       month: 'February',
-      saved: [],
+      saved: JSON.parse(localStorage.getItem('saved'))
+        ? JSON.parse(localStorage.getItem('saved'))
+        : [],
     };
   }
 
@@ -47,6 +49,28 @@ class App extends React.Component {
     this.setState({ city: city });
   };
 
+  updateSaved = (id, value) => {
+    let savedArr = [...this.state.saved];
+    let isFound = false;
+    savedArr.forEach((obj) => {
+      if (obj.id === id && obj.value !== value) {
+        obj.value = value;
+      }
+      if (obj.id === id) isFound = true;
+    });
+
+    if (!isFound) savedArr.push({ id, value });
+
+    this.setState({ saved: savedArr });
+    localStorage.setItem('saved', JSON.stringify(savedArr));
+  };
+
+  getDataFromLocalStorage = () => {
+    if (JSON.parse(localStorage.getItem('saved'))) {
+      this.setState({ saved: JSON.parse(localStorage.getItem('saved')) });
+    }
+  };
+
   render() {
     return (
       <div className="app">
@@ -65,7 +89,7 @@ class App extends React.Component {
             events={this.state.events}
             city={this.state.city}
             month={this.state.month}
-            updateSavedCards={this.updateSavedCards}
+            updateSaved={this.updateSaved}
             savedCards={this.state.saved}
           />
         </div>

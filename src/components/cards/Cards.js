@@ -6,25 +6,46 @@ class Cards extends React.Component {
     super(props);
   }
 
-  saveCard(e) {
+  saveCard = (e) => {
     if (e.target.className.baseVal === 'event-save-icon') {
       e.target.children[0].className.baseVal =
         e.target.children[0].className.baseVal === 'no-fill'
           ? 'active'
           : 'no-fill';
+
+      if (e.target.children[0].className.baseVal === 'active') {
+        this.props.updateSaved(e.target.parentNode.id, 'active');
+      } else {
+        this.props.updateSaved(e.target.parentNode.id, 'no-fill');
+      }
     } else {
       e.target.className.baseVal =
         e.target.className.baseVal === 'no-fill' ? 'active' : 'no-fill';
-    }
-  }
 
-  createCard(date, name, img) {
+      if (e.target.className.baseVal === 'active') {
+        this.props.updateSaved(e.target.parentNode.parentNode.id, 'active');
+      } else {
+        this.props.updateSaved(e.target.parentNode.parentNode.id, 'no-fill');
+      }
+    }
+  };
+
+  createCard(id, date, name, img) {
     let day = date.split('.')[0];
+    let saveType;
+
+    this.props.savedCards.forEach((obj) => {
+      if (obj.id === id) {
+        saveType = obj.value;
+      }
+    });
+
     return (
       <div
         className="card-event"
         style={{ backgroundImage: `url(${img})` }}
-        key={`${name}-${date}`}
+        key={id}
+        id={id}
       >
         <div className="event-month">{day}</div>
         <span>{name}</span>
@@ -36,7 +57,7 @@ class Cards extends React.Component {
           className="event-save-icon"
         >
           <path
-            className="no-fill"
+            className={`${saveType}`}
             d="M15 19L8 14L1 19V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H13C13.5304 1 14.0391 1.21071 14.4142 1.58579C14.7893 1.96086 15 2.46957 15 3V19Z"
             stroke="white"
             strokeWidth="2"
@@ -55,7 +76,7 @@ class Cards extends React.Component {
         month: 'long',
       });
       if (event.city === city && month === eventMonth) {
-        return this.createCard(event.date, event.name, event.image);
+        return this.createCard(event.id, event.date, event.name, event.image);
       } else return;
     });
   }
