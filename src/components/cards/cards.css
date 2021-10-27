@@ -1,0 +1,70 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card-event {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1));
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  padding: 40px;
+  margin-bottom: 40px;
+  user-select: none;
+}
+.event-month {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family: 'AvenirLTStd-Book';
+  font-size: 48px;
+  line-height: 66px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-event > span {
+  font-size: 48px;
+  line-height: 66px;
+  color: #ffffff;
+  font-family: 'AvenirLTStd-Black';
+  position: absolute;
+  bottom: 42px;
+}
+.event-save-icon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 16px;
+  height: 20px;
+}
+.no-fill {
+  fill: none;
+}
+.active {
+  fill: white;
+}
+
+@media (max-width: 810px) {
+  .card-event {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .event-month {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .card-event > span {
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
