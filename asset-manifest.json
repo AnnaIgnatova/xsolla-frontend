@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/xsolla-frontend/static/css/main.f5777d93.chunk.css",
-    "main.js": "/xsolla-frontend/static/js/main.7dc6d963.chunk.js",
-    "main.js.map": "/xsolla-frontend/static/js/main.7dc6d963.chunk.js.map",
+    "main.js": "/xsolla-frontend/static/js/main.e63f6b21.chunk.js",
+    "main.js.map": "/xsolla-frontend/static/js/main.e63f6b21.chunk.js.map",
     "runtime-main.js": "/xsolla-frontend/static/js/runtime-main.f18ea699.js",
     "runtime-main.js.map": "/xsolla-frontend/static/js/runtime-main.f18ea699.js.map",
     "static/js/2.f807fd60.chunk.js": "/xsolla-frontend/static/js/2.f807fd60.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.f18ea699.js",
     "static/js/2.f807fd60.chunk.js",
     "static/css/main.f5777d93.chunk.css",
-    "static/js/main.7dc6d963.chunk.js"
+    "static/js/main.e63f6b21.chunk.js"
   ]
 }
