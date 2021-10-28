@@ -7,26 +7,23 @@ class Cards extends React.Component {
   }
 
   saveCard = (e) => {
+    let targetElement;
+    let targetParentId;
+
     if (e.target.className.baseVal === 'event-save-icon') {
-      e.target.children[0].className.baseVal =
-        e.target.children[0].className.baseVal === 'no-fill'
-          ? 'active'
-          : 'no-fill';
-
-      if (e.target.children[0].className.baseVal === 'active') {
-        this.props.updateSaved(e.target.parentNode.id, 'active');
-      } else {
-        this.props.updateSaved(e.target.parentNode.id, 'no-fill');
-      }
+      targetElement = e.target.children[0].className.baseVal;
+      targetParentId = e.target.parentNode.id;
     } else {
-      e.target.className.baseVal =
-        e.target.className.baseVal === 'no-fill' ? 'active' : 'no-fill';
+      targetElement = e.target.className.baseVal;
+      targetParentId = e.target.parentNode.parentNode.id;
+    }
 
-      if (e.target.className.baseVal === 'active') {
-        this.props.updateSaved(e.target.parentNode.parentNode.id, 'active');
-      } else {
-        this.props.updateSaved(e.target.parentNode.parentNode.id, 'no-fill');
-      }
+    if (targetElement === 'no-fill' || targetElement === 'undefined') {
+      targetElement = 'active';
+      this.props.updateSaved(targetParentId, 'active');
+    } else {
+      targetElement = 'no-fill';
+      this.props.updateSaved(targetParentId, 'no-fill');
     }
   };
 
