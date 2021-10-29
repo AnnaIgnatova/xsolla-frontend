@@ -1,6 +1,10 @@
 import React from 'react';
 import './cards.css';
 
+const NOT_FILLED = 'no-fill';
+const SAVE_ICON = 'event-save-icon';
+const FILLED = 'active';
+
 class Cards extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +14,7 @@ class Cards extends React.Component {
     let targetElement;
     let targetParentId;
 
-    if (e.target.className.baseVal === 'event-save-icon') {
+    if (e.target.className.baseVal === SAVE_ICON) {
       targetElement = e.target.children[0].className.baseVal;
       targetParentId = e.target.parentNode.id;
     } else {
@@ -18,12 +22,12 @@ class Cards extends React.Component {
       targetParentId = e.target.parentNode.parentNode.id;
     }
 
-    if (targetElement === 'no-fill' || targetElement === 'undefined') {
-      targetElement = 'active';
-      this.props.updateSaved(targetParentId, 'active');
+    if (targetElement === NOT_FILLED || targetElement === 'undefined') {
+      targetElement = FILLED;
+      this.props.updateSaved(targetParentId, FILLED);
     } else {
-      targetElement = 'no-fill';
-      this.props.updateSaved(targetParentId, 'no-fill');
+      targetElement = NOT_FILLED;
+      this.props.updateSaved(targetParentId, NOT_FILLED);
     }
   };
 
@@ -74,7 +78,7 @@ class Cards extends React.Component {
       });
       if (event.city === city && month === eventMonth) {
         return this.createCard(event.id, event.date, event.name, event.image);
-      } else return;
+      }
     });
   }
 

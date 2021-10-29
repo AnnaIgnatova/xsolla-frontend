@@ -4,6 +4,10 @@ import Cities from './components/select/Cities.js';
 import Monthes from './components/select/Monthes';
 import Cards from './components/cards/Cards';
 
+const SAVED_ITEM = 'saved';
+const DEFAULT_CITY = 'Amsterdam';
+const DEFAULT_MONTH = 'February';
+
 const requestURL =
   'https://raw.githubusercontent.com/xsolla/xsolla-frontend-school-2021/main/events.json';
 
@@ -12,10 +16,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       events: [],
-      city: 'Amsterdam',
-      month: 'February',
-      saved: JSON.parse(localStorage.getItem('saved'))
-        ? JSON.parse(localStorage.getItem('saved'))
+      city: DEFAULT_CITY,
+      month: DEFAULT_MONTH,
+      saved: JSON.parse(localStorage.getItem(SAVED_ITEM))
+        ? JSON.parse(localStorage.getItem(SAVED_ITEM))
         : [],
     };
   }
@@ -53,21 +57,21 @@ class App extends React.Component {
     let savedArr = [...this.state.saved];
     let isFound = false;
     savedArr.forEach((obj) => {
-      if (obj.id === id && obj.value !== value) {
+      if (obj.id === id) {
         obj.value = value;
+        isFound = true;
       }
-      if (obj.id === id) isFound = true;
     });
 
     if (!isFound) savedArr.push({ id, value });
 
     this.setState({ saved: savedArr });
-    localStorage.setItem('saved', JSON.stringify(savedArr));
+    localStorage.setItem(SAVED_ITEM, JSON.stringify(savedArr));
   };
 
   getDataFromLocalStorage = () => {
-    if (JSON.parse(localStorage.getItem('saved'))) {
-      this.setState({ saved: JSON.parse(localStorage.getItem('saved')) });
+    if (JSON.parse(localStorage.getItem(SAVED_ITEM))) {
+      this.setState({ saved: JSON.parse(localStorage.getItem(SAVED_ITEM)) });
     }
   };
 
