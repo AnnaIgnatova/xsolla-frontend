@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/xsolla-frontend/static/css/main.f5777d93.chunk.css",
-    "main.js": "/xsolla-frontend/static/js/main.e63f6b21.chunk.js",
-    "main.js.map": "/xsolla-frontend/static/js/main.e63f6b21.chunk.js.map",
+    "main.css": "/xsolla-frontend/static/css/main.8b0666e0.chunk.css",
+    "main.js": "/xsolla-frontend/static/js/main.39784fe6.chunk.js",
+    "main.js.map": "/xsolla-frontend/static/js/main.39784fe6.chunk.js.map",
     "runtime-main.js": "/xsolla-frontend/static/js/runtime-main.f18ea699.js",
     "runtime-main.js.map": "/xsolla-frontend/static/js/runtime-main.f18ea699.js.map",
     "static/js/2.f807fd60.chunk.js": "/xsolla-frontend/static/js/2.f807fd60.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.3412178a.chunk.js": "/xsolla-frontend/static/js/3.3412178a.chunk.js",
     "static/js/3.3412178a.chunk.js.map": "/xsolla-frontend/static/js/3.3412178a.chunk.js.map",
     "index.html": "/xsolla-frontend/index.html",
-    "static/css/main.f5777d93.chunk.css.map": "/xsolla-frontend/static/css/main.f5777d93.chunk.css.map",
+    "static/css/main.8b0666e0.chunk.css.map": "/xsolla-frontend/static/css/main.8b0666e0.chunk.css.map",
     "static/js/2.f807fd60.chunk.js.LICENSE.txt": "/xsolla-frontend/static/js/2.f807fd60.chunk.js.LICENSE.txt",
     "static/media/index.css": "/xsolla-frontend/static/media/AvenirLTStd-Roman.0bfb049d.otf",
     "static/media/select.css": "/xsolla-frontend/static/media/arrow.c381148f.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.f18ea699.js",
     "static/js/2.f807fd60.chunk.js",
-    "static/css/main.f5777d93.chunk.css",
-    "static/js/main.e63f6b21.chunk.js"
+    "static/css/main.8b0666e0.chunk.css",
+    "static/js/main.39784fe6.chunk.js"
   ]
 }
